@@ -5,3 +5,8 @@
 Имеются монеты номиналом: 1, 2, 5, 10 рублей.*/
 
 
+function calculateCoins(amount) {
+
+}
+
+
