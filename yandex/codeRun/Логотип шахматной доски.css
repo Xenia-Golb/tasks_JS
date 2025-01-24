@@ -1,0 +1,66 @@
+div {
+    width: 180px;
+    height: 180px;
+    background-color: #654430;
+    /* Темный цвет фона */
+    position: relative;
+}
+
+/* Левая верхняя часть */
+div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    background-color: #f7ebcc;
+    /* Светлый цвет секции */
+}
+
+/* Правая верхняя часть с помощью box-shadow */
+div::before {
+    box-shadow: 90px 0 0 0 #f7ebcc;
+    /* Создаем правую верхнюю часть */
+}
+
+/* Левая нижняя часть с помощью box-shadow */
+div::before {
+    box-shadow: 0 90px 0 0 #f7ebcc;
+    /* Создаем левую нижнюю часть */
+}
+
+/* Правая нижняя часть с помощью box-shadow */
+div::before {
+    box-shadow: 90px 90px 0 0 #f7ebcc;
+    /* Создаем правую нижнюю часть */
+}
+
+/* Шашка в левой верхней части */
+div::after {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: 40px;
+    /* Диаметр внутреннего круга */
+    height: 40px;
+    /* Диаметр внутреннего круга */
+    background-color: #5f5d5e;
+    /* Основной цвет шашки */
+    border: 3px solid #252324;
+    /* Черная обводка */
+    border-radius: 50%;
+    /* Круглая форма */
+    outline: 5px solid #5f5d5e;
+
+}
+
+
+/* Шашка в правой нижней части */
+div::after {
+    box-shadow: 90px 90px 0 0 #5f5d5e,
+        90px 90px 0 3px #252324,
+        90px 90px 0 8px #5f5d5e;
+    /* Создаем четвертую шашку */
+}
