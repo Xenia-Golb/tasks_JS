@@ -563,3 +563,48 @@ function toUpperFirstCh(str) {
   return arr.join(" ");
 }
 console.log(toUpperFirstCh("aaa bbb ccc"));
+
+//Получите массив позиций всех нулей в этой в строке.
+function findPositionZero() {
+  let str = "023m0df0dfg00";
+  let arr = str.split("");
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === "0") {
+      result.push(i);
+    }
+  }
+  return result;
+}
+console.log(findPositionZero());
+
+//Удалите из этой строки каждый третий символ.
+function removeThirdChar() {
+  let str = "abcdefg";
+  let arr = str.split("");
+  for (let i = 0; i < arr.length; i++) {
+    if (i !== 0 && i % 2 == 0) {
+      arr.splice(i, 1);
+    }
+  }
+  return arr.join("");
+}
+console.log(removeThirdChar());
+
+//Поделите сумму элементов, стоящих на четных позициях, на сумму элементов, стоящих на нечетных позициях.
+function getSum2PartArr() {
+  let arr = [10, 2, 10, 4, 15, 1];
+  let even = [];
+  let odd = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (i % 2 == 0) {
+      even.push(arr[i]);
+    } else {
+      odd.push(arr[i]);
+    }
+  }
+  let sumEven = even.reduce((a, b) => a + b, 0);
+  let sumOdd = odd.reduce((a, b) => a + b, 0);
+  return sumEven / sumOdd;
+}
+console.log(getSum2PartArr());
