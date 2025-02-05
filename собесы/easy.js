@@ -319,3 +319,108 @@ function number(array) {
   return res;
 }
 console.log(number([1, 2, 3, 4, 5]));
+
+//Дано некоторое число. Проверьте, что цифры этого числа расположены по возрастанию.
+function checkNumUp(num) {
+  let arr = num.toString().split("");
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] >= arr[i + 1]) {
+      return false;
+    }
+  }
+  return true;
+}
+console.log(checkNumUp(1236456));
+
+//Дан массив:
+//[1, '', 2, 3, '', 5]
+//Удалите из массива все пустые строки.
+function removeZeroStr() {
+  let arr = [1, "", 2, 3, "", 5, 6, 7, ""];
+  return arr.filter((el) => el !== "");
+}
+console.log(removeZeroStr());
+
+// Дан массив:
+
+// [
+// 	[2, 1, 4, 3, 5],
+// 	[3, 5, 2, 4, 1],
+// 	[4, 3, 1, 5, 2],
+// ]
+// Отсортируйте элементы в каждом подмассиве.
+function sortArrs() {
+  let arr = [
+    [2, 1, 4, 3, 5],
+    [3, 5, 2, 4, 1],
+    [4, 3, 1, 5, 2],
+  ];
+  return arr.map((item) => item.sort((a, b) => a - b));
+}
+console.log(sortArrs());
+
+//Даны два массива:
+
+// let arr1 = [1, 2, 3];
+// let arr2 = [1, 2, 3, 4, 5];
+// Удалите из большего массива лишние элементы с конца так, чтобы длины массивов стали одинаковыми.
+function removeEls() {
+  let arr1 = [1, 2, 3];
+  let arr2 = [1, 2, 3, 4, 5];
+
+  while (arr1.length !== arr2.length) {
+    arr2.pop();
+  }
+
+  return [arr1, arr2];
+}
+
+console.log(removeEls());
+
+//Выведите в консоль все числа в промежутке от 10 до 1000, у которых предпоследняя цифра четная.
+// function printNum() {
+//   let num;
+//   for (let i = 10; i < 1000; i++) {
+//     num = i.toString().split("");
+//     if (Number(num[num.length - 2]) % 2 === 0 && num.length > 2) {
+//       console.log(i);
+//     }
+//   }
+// }
+
+// printNum();
+
+//Дана некоторая переменная с числом:
+//let num = 5;
+//Сделайте строку, содержащую столько нулей, сколько указано в переменной.
+//В нашем случае получится такая строка:
+//'00000'
+function createStr() {
+  let num = 10;
+  let str = [];
+  for (let i = 0; i < num; i++) {
+    str.push(0);
+  }
+  return str.join("");
+}
+console.log(createStr());
+
+// Дан массив:
+
+// [
+// 	[1, 2, 3],
+// 	[4, 5, 6],
+// 	[7, 8, 9],
+// ]
+// Найдите сумму элементов этого массива.
+
+function getSum() {
+  let arr = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+  ];
+  let newArr = arr.map((el) => el.reduce((acc, item) => acc + item));
+  return newArr.reduce((acc, item) => acc + item);
+}
+console.log(getSum());
