@@ -134,3 +134,92 @@ if (!Array.prototype.find) {
     return undefined;
   };
 }
+
+__________________________________________________________________________________________;
+
+///forEach
+if (!Array.prototype.forEach) {
+  Array.prototype.forEach = function (callback, thisArg) {
+    for (let i = 0; i < this.length; i++) {
+      if (i in this) {
+        callback.call(thisArg, this[i], i, this);
+      }
+    }
+  };
+}
+///map
+if (!Array.prototype.map) {
+  Array.prototype.map = function (callback, thisArg) {
+    let results = [];
+    for (let i = 0; i < this.length; i++) {
+      if (i in this) {
+        results[i] = callback.call(thisArg, this[i], i, this);
+      }
+    }
+    return results;
+  };
+}
+///filter
+if (!Array.prototype.filter) {
+  Array.prototype.filter = function (callback, thisArg) {
+    let results = [];
+    for (let i = 0; i < this.length; i++) {
+      if (i in this && callback.call(thisArg, this[i], i, this)) {
+        results.push(this[i]);
+      }
+    }
+    return results;
+  };
+}
+//reduce
+if (!Array.prototype.reduce) {
+  Array.prototype.reduce = function (callback, initialValue) {
+    if (this === null || this === undefined) {
+      throw new TypeError("Array.prototype.reduce called on null or undefined");
+    }
+    if (typeof callback !== "function") {
+      throw new TypeError(callback + " is not a function");
+    }
+    let i = 0;
+    let accumulator = initialValue;
+    if (arguments.length < 2) {
+      if (this.length === 0) {
+        throw new TypeError("Reduce of empty array with no initial value");
+      }
+      accumulator = this[0];
+      i = 1;
+    }
+    for (; i < this.length; i++) {
+      if (i in this) {
+        accumulator = callback(accumulator, this[i], i, this);
+      }
+    }
+    return accumulator;
+  };
+}
+//reduce
+if (!Array.prototype.reduce) {
+  Array.prototype.reduce = function (callback, initialValue) {
+    if (this === null || this === undefined) {
+      throw new Error("called null of undefined ");
+    }
+    if (typeof callback !== "function") {
+      throw new Error("callback is not a function ");
+    }
+    let i = 0;
+    let accumulator = initialValue;
+    if (arguments.length < 2) {
+      if (this.length === 0) {
+        throw new Error("initialValue empty");
+      }
+      accumulator = this[0];
+      i = 1;
+    }
+    for (; i < this.length; i++) {
+      if (i in this) {
+        accumulator = callback(accumulator, this[i], i, this);
+      }
+    }
+    return accumulator;
+  };
+}

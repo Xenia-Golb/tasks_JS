@@ -25,3 +25,23 @@ function handleScroll() {
 }
 
 window.addEventListener("scroll", throttle(handleScroll, 200));
+
+function throttle(func, limit) {
+  let inThrottle;
+  return function () {
+    const context = this;
+    const args = arguments;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), limit);
+    }
+  };
+}
+
+// Пример использования
+function handleScroll() {
+  console.log("Scroll event handled");
+}
+
+window.addEventListener("scroll", throttle(handleScroll, 200));
