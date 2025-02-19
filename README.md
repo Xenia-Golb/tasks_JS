@@ -2,7 +2,7 @@
 
 ### Источники:
 
-1. https://dev-station.ru/simulator/js
+1. https://dev-station.ru/tasks/js
 2. https://coderun.yandex.ru
 3. https://leetcode.com
 4. https://code.mu/ru/javascript/tasker/stager/
